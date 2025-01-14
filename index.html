@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residences in Ivory Coast</title>
+    
+    <!-- Google Fonts for a professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px; /* Space for footer */
+        }
+
+        /* Header styling */
+        header {
+            background-color: #1A73E8; /* Blue tone like Hotels.com */
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        /* Main title styling */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navigation links styling */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1A73E8;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0A5FCE; /* Darker shade on hover */
+        }
+
+        /* Central search bar container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        /* Search bar input */
+        .search-container input {
+            padding: 12px;
+            width: 50%;
+            border-radius: 50px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        /* Search button */
+        .search-container button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #1A73E8; /* Match header blue */
+            color: white;
+            font-size: 16px;
+            margin-left: -80px; /* Adjusts to overlap slightly with input */
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for search button */
+        .search-container button:hover {
+            background-color: #0A5FCE; /* Darker shade on hover */
+        }
+
+        /* Featured properties section */
+        .featured-properties {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 60px 10%;
+        }
+
+        /* Individual property styling */
+        .property {
+            width: 30%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .property img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Hover effect for property cards */
+        .property:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Property details styling */
+        .property-details {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .property-details h2 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #1A73E8;
+        }
+
+        .property-details p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .property-details button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #1A73E8;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Hover effect for property buttons */
+        .property-details button:hover {
+            background-color: #0A5FCE; /* Darker shade of blue */
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1A73E8;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 992px) {
+            .property {
+                width: 45%;
+            }
+
+            .search-container input {
+                width: 60%;
+            }
+
+            .search-container button {
+                margin-left: -60px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .property {
+                width: 100%;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-container input {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+
+            .search-container button {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <h1>Luxury Residences in Ivory Coast</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="account.html">Sign In</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="package.html">Packages</a></li>  <!-- Added link to Packages -->
+        </ul>
+    </nav>
+
+    <!-- Search bar -->
+    <div class="search-container">
+        <input type="text" placeholder="Where are you going?" />
+        <button type="button">Search</button>
+    </div>
+
+    <!-- Featured properties section -->
+    <div class="featured-properties">
+        <!-- Property 1 -->
+        <div class="property">
+            <img src="Assini2.JPG" alt="Luxury Residence 1">
+            <div class="property-details">
+                <h2>Beachfront Villa</h2>
+                <p>Enjoy the ultimate relaxation by the beach with a private pool and chef.</p>
+                <button onclick="window.location.href='booking.html'">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property">
+            <img src="Assini's.JPG" alt="Luxury Residence 2">
+            <div class="property-details">
+                <h2>Secluded Mansion</h2>
+                <p>Retreat in style with your own private mansion, chef, and chauffeur.</p>
+                <button onclick="window.location.href='booking.html'">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property">
+            <img src="Assini.JPG" alt="Luxury Residence 3">
+            <div class="property-details">
+                <h2>Private Island Getaway</h2>
+                <p>Escape to your private island and enjoy complete privacy and luxury.</p>
+                <button onclick="window.location.href='booking.html'">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        &copy; 2024 Residences in Ivory Coast. All rights reserved.
+    </footer>
+
+</body>
+</html>
