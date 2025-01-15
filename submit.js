@@ -11,15 +11,51 @@ emailIdVariable.addEventListener('input', (event) => {
     }
   });
 
-function collectingData(){
+  function collectingData() {
+    // Retrieve form inputs
+    const name = document.getElementById('nameId').value;
+    const email = document.getElementById('emailId').value;
+    const phone = document.getElementById('phoneId').value;
+    const password = document.getElementById('passwordId').value;
+    const confirmPassword = document.getElementById('confirmPasswordId').value;
+    const checkin = document.getElementById('checkinId').value;
+    const checkout = document.getElementById('checkoutId').value;
+    const adults = document.getElementById('guestsAdultsId').value;
+    const children = document.getElementById('guestsChildrenId').value;
 
-    
-    var checkinIdVariable = document.getElementById('checkinId').value;
-    var checkoutIdVariable = document.getElementById('checkoutId').value;
-    var guestsAdultsIdVariable = document.getElementById('guestsAdultsId').value;
-    var guestsChildrenIdVariable = document.getElementById('guestsChildrenId').value;
-    console.log("email: "+emailIdVariable.value+"\n", "checkin: "+checkinIdVariable+"\n", "checkout: "+checkoutIdVariable+"\n", "guestAdult: "+guestsAdultsIdVariable+"\n", "child: "+guestsChildrenIdVariable+"\n", selected_package1, selected_package2);
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+    }
+
+    // Validate phone number format
+    if (!phone.match(/^\+?\d{7,15}$/)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
+    // Save booking details to localStorage
+    const bookingDetails = {
+        name,
+        email,
+        phone,
+        password, // Save the password (hashed later in real applications)
+        checkin,
+        checkout,
+        package: selected_package1,
+        chefService: selected_package2, // Add chef service
+        adults,
+        children,
+    };
+
+    localStorage.setItem('customerBooking', JSON.stringify(bookingDetails));
+
+    // Redirect to the dashboard page
+    window.location.href = 'dashboard.html';
 }
+
+
 
 function showChefOptions(value) {
     var options = document.getElementById('chef-options'); 
