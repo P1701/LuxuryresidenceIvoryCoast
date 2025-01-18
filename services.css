@@ -1,0 +1,233 @@
+*::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #1A73E8;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+
+    padding-bottom: 60px;
+    width: 100% !important;
+}
+
+
+/* Header styling */
+header {
+    background-color: #1A73E8;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.384);
+    height: 130px;
+    padding: 0px 2% 0px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 97%;
+    z-index: 1000;
+}
+
+
+/* Navigation bar styling */
+
+nav {
+    width: 80%;
+    padding-right: 2%;
+}
+
+/* Navigation links styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    column-gap: 5%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+nav ul li a:hover {
+    color: #eef5f7;
+    /* Darker shade on hover */
+}
+
+nav ul li a.active {
+    border-bottom-width: 5px;
+    border-bottom-color: #2ec6f5;
+    border-bottom-style: solid;
+    /* Add border-style for the border properties to take effect */
+}
+
+
+
+
+/* Central search bar container */
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Search bar input */
+.search-container input {
+    padding: 12px;
+    width: 50%;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+
+/* Search button */
+.search-container button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #1A73E8;
+    /* Match header blue */
+    color: white;
+    font-size: 16px;
+    margin-left: -80px;
+    /* Adjusts to overlap slightly with input */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for search button */
+.search-container button:hover {
+    background-color: #0A5FCE;
+    /* Darker shade on hover */
+}
+
+/* Featured properties section */
+.featured-properties {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 60px 10%;
+}
+
+/* Individual property styling */
+.property {
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.property img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Hover effect for property cards */
+.property:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Property details styling */
+.property-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.property-details h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #1A73E8;
+}
+
+.property-details p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.property-details button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #1A73E8;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+/* Hover effect for property buttons */
+.property-details button:hover {
+    background-color: #0A5FCE;
+    /* Darker shade of blue */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A73E8;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 992px) {
+    .property {
+        width: 45%;
+    }
+
+    .search-container input {
+        width: 60%;
+    }
+
+    .search-container button {
+        margin-left: -60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .property {
+        width: 100%;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .search-container button {
+        margin-left: 0;
+    }
+}
