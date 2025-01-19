@@ -63,17 +63,19 @@
             margin-top: 20px;
         }
 
-        .buttons a {
+        .buttons a, .buttons button {
             text-decoration: none;
             color: white;
             background-color: #1A73E8;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
+            border: none;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .buttons a:hover {
+        .buttons a:hover, .buttons button:hover {
             background-color: #0A5FCE;
         }
 
@@ -109,6 +111,7 @@
         <p><strong>Chef Service:</strong> <span id="chef-service"></span></p>
 
         <div class="buttons">
+            <button id="edit-button">Edit</button>
             <a href="dashboard.html">Check Dashboard</a>
             <a href="index.html">Home</a>
         </div>
@@ -132,6 +135,13 @@
                 document.getElementById('guest-details').textContent = `${customer.adults} Adults, ${customer.children} Child(ren)`;
                 document.getElementById('chef-service').textContent = customer.chefService || "No chef service selected";
             }
+
+            // Edit button functionality
+            const editButton = document.getElementById('edit-button');
+            editButton.addEventListener('click', () => {
+                // Redirect to booking page
+                window.location.href = 'booking.html';
+            });
         });
     </script>
 </body>

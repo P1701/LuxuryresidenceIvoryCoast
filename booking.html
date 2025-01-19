@@ -50,7 +50,6 @@
             z-index: 1000;
         }
 
-        /* Navigation links styling */
         nav ul {
             list-style: none;
             display: flex;
@@ -72,10 +71,8 @@
 
         nav ul li a:hover {
             color: #0A5FCE;
-            /* Darker shade on hover */
         }
 
-        /* Form container styling */
         .form-container {
             max-width: 600px;
             margin: 40px auto;
@@ -85,7 +82,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Form heading */
         .form-container h2 {
             text-align: center;
             margin-bottom: 30px;
@@ -93,37 +89,17 @@
             color: #1A73E8;
         }
 
-        /* Form styling */
         form {
             display: flex;
             flex-direction: column;
         }
 
-        /* Label styling */
         label {
             font-weight: bold;
             margin-bottom: 8px;
             color: #333;
         }
 
-        .package-selection {
-            width: 80%;
-            margin: 40px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        /* Input field styling */
         input[type="text"],
         input[type="email"],
         input[type="date"],
@@ -139,7 +115,14 @@
             width: 100%;
         }
 
-        /* Submit button styling */
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
         .submit {
             padding: 12px;
             border-radius: 50px;
@@ -154,17 +137,10 @@
             text-align: center;
         }
 
-        #hidingDiv {
-
-            display: none;
-        }
-
-        /* Hover effect for submit button */
         .submit:hover {
             background-color: #0A5FCE;
         }
 
-        /* Footer styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -175,7 +151,6 @@
             width: 100%;
         }
 
-        /* Responsive design adjustments */
         @media (max-width: 600px) {
             .form-container {
                 margin: 20px;
@@ -206,82 +181,110 @@
     <!-- Booking form section -->
     <div class="form-container">
         <h2>Start Booking Here</h2>
-
-        <!-- Booking Form -->
         <form>
-            <!-- Email Address -->
+            <label for="nameId">Full Name:</label>
+            <input type="text" id="nameId" name="name" placeholder="Your Full Name" required>
+
             <label for="emailId">Email Address:</label>
             <input type="email" id="emailId" name="email" placeholder="your.email@example.com" required>
-            <div id="hidingDiv">
-                <!-- Full Name -->
-                <label for="nameId">Full Name:</label>
-                <input type="text" id="nameId" name="name" placeholder="Your Full Name" required>
 
-                <!-- Phone Number -->
-                <label for="phoneId">Phone Number:</label>
-                <input type="tel" id="phoneId" name="phone" placeholder="e.g., +1234567890" required>
+            <label for="phoneId">Phone Number:</label>
+            <input type="tel" id="phoneId" name="phone" placeholder="e.g., +1234567890" required>
 
-                <!-- Password -->
-                <label for="passwordId">Create Password:</label>
-                <input type="password" id="passwordId" name="password" placeholder="Enter a strong password" required>
+            <label for="passwordId">Create Password:</label>
+            <input type="password" id="passwordId" name="password" placeholder="Enter a strong password" required>
 
-                <!-- Confirm Password -->
-                <label for="confirmPasswordId">Confirm Password:</label>
-                <input type="password" id="confirmPasswordId" name="confirmPassword"
-                    placeholder="Re-enter your password" required>
-            </div>
+            <label for="confirmPasswordId">Confirm Password:</label>
+            <input type="password" id="confirmPasswordId" name="confirmPassword" placeholder="Re-enter your password" required>
 
-            <!-- Check-in Date -->
             <label for="checkinId">Check-in Date:</label>
             <input type="date" id="checkinId" name="checkin" required>
 
-            <!-- Check-out Date -->
             <label for="checkoutId">Check-out Date:</label>
             <input type="date" id="checkoutId" name="checkout" required>
 
-            <!-- Number of Adults -->
             <label for="guestsAdultsId">Number of Adults:</label>
             <input type="number" id="guestsAdultsId" name="guestsAdults" min="1" max="10" required>
 
-            <!-- Number of Children -->
             <label for="guestsChildrenId">Number of Children:</label>
             <input type="number" id="guestsChildrenId" name="guestsChildren" min="0" max="10" required>
 
-            <!-- Package Selection -->
             <label for="package-choice">Select a Package:</label>
-            <select id="package-choice" name="package" onchange="showChefOptions(this.value)">
-                <option value="0">Select package</option>
+            <select id="package-choice" name="package">
                 <option value="House + Chauffeur">House + Chauffeur</option>
                 <option value="House + Chauffeur + Private Chef">House + Chauffeur + Private Chef</option>
-                <option value="House + Chauffeur + Private Chef + Expeditions and/or Night Life">House + Chauffeur +
-                    Private Chef + Expeditions and/or Night Life</option>
+                <option value="House + Chauffeur + Private Chef + Expeditions and/or Night Life">House + Chauffeur + Private Chef + Expeditions and/or Night Life</option>
             </select>
 
-            <!-- Chef Options (Hidden by Default) -->
-            <div id="chef-options" style="display:none;">
-                <p>Choose Chef Service:</p>
-                <select name="chef_service" onchange="collectValue(this.value)">
-                    <option value="Full Package (Breakfast, Lunch, Dinner)">Full Package (Breakfast, Lunch, Dinner)
-                    </option>
-                    <option value="Half Package (Breakfast and Dinner)">Half Package (Breakfast and Dinner)</option>
-                    <option value="Half Package (Breakfast and Lunch)">Half Package (Breakfast and Lunch)</option>
-                </select>
-            </div>
+            <label for="chef-service-choice">Choose Chef Service:</label>
+            <select id="chef-service-choice" name="chef_service">
+                <option value="Full Package (Breakfast, Lunch, Dinner)">Full Package (Breakfast, Lunch, Dinner)</option>
+                <option value="Half Package (Breakfast and Dinner)">Half Package (Breakfast and Dinner)</option>
+                <option value="Half Package (Breakfast and Lunch)">Half Package (Breakfast and Lunch)</option>
+            </select>
 
-            <!-- Submit Button -->
-             <br>
-            <a class="submit" onclick="collectingData()">BOOK NOW</a>
+            <button type="button" class="submit" onclick="collectingData()">BOOK NOW</button>
         </form>
-
-
     </div>
 
-
-    <!-- Footer section -->
     <footer>
         &copy; 2024 Residences in Ivory Coast. All rights reserved.
     </footer>
-    <script src="submit.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const customer = JSON.parse(localStorage.getItem('customerBooking'));
+            if (customer) {
+                document.getElementById('nameId').value = customer.name;
+                document.getElementById('emailId').value = customer.email;
+                document.getElementById('phoneId').value = customer.phone;
+                document.getElementById('passwordId').value = customer.password;
+                document.getElementById('confirmPasswordId').value = customer.password;
+                document.getElementById('checkinId').value = customer.checkin;
+                document.getElementById('checkoutId').value = customer.checkout;
+                document.getElementById('guestsAdultsId').value = customer.adults;
+                document.getElementById('guestsChildrenId').value = customer.children;
+
+                document.getElementById('package-choice').value = customer.package;
+                document.getElementById('chef-service-choice').value = customer.chefService;
+            }
+        });
+
+        function collectingData() {
+            const name = document.getElementById('nameId').value;
+            const email = document.getElementById('emailId').value;
+            const phone = document.getElementById('phoneId').value;
+            const password = document.getElementById('passwordId').value;
+            const confirmPassword = document.getElementById('confirmPasswordId').value;
+            const checkin = document.getElementById('checkinId').value;
+            const checkout = document.getElementById('checkoutId').value;
+            const adults = document.getElementById('guestsAdultsId').value;
+            const children = document.getElementById('guestsChildrenId').value;
+            const packageChoice = document.getElementById('package-choice').value;
+            const chefService = document.getElementById('chef-service-choice').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
+
+            const bookingDetails = {
+                name,
+                email,
+                phone,
+                password,
+                checkin,
+                checkout,
+                package: packageChoice,
+                chefService,
+                adults,
+                children,
+            };
+
+            localStorage.setItem('customerBooking', JSON.stringify(bookingDetails));
+            window.location.href = 'confirmation.html';
+        }
+    </script>
 </body>
 
 </html>
