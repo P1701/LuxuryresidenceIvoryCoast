@@ -16,6 +16,7 @@ emailIdVariable.addEventListener('input', (event) => {
   function collectingData() {
     // Retrieve form inputs
     const name = document.getElementById('nameId').value;
+    const email = document.getElementById('emailId').value;
     const phone = document.getElementById('phoneId').value;
     const password = document.getElementById('passwordId').value;
     const confirmPassword = document.getElementById('confirmPasswordId').value;
@@ -30,10 +31,16 @@ emailIdVariable.addEventListener('input', (event) => {
         return;
     }
 
+    // Validate phone number format
+    if (!phone.match(/^\+?\d{7,15}$/)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
     // Save booking details to localStorage
     const bookingDetails = {
         name,
-        email:emailIdVariable.value,
+        email,
         phone,
         password, // Save the password (hashed later in real applications)
         checkin,
@@ -44,12 +51,11 @@ emailIdVariable.addEventListener('input', (event) => {
         children,
     };
 
-    //console.log(bookingDetails);
+    localStorage.setItem('customerBooking', JSON.stringify(bookingDetails));
 
-    // Redirect to the dashboard page
-    window.location.href = 'dashboard.html';
+    // Redirect to the confirmation page
+    window.location.href = 'confirmation.html';
 }
-
 
 
 function showChefOptions(value) {
